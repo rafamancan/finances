@@ -7,14 +7,6 @@ class CreateUser {
     };
   }
 
-  get messages() {
-    return {
-      required: '{{ field }} is required',
-      email: '{{ field }} is not valid e-mail',
-      string: '{{ field }} is not a valid string',
-    };
-  }
-
   get validateAll() {
     return true;
   }
