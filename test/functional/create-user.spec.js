@@ -3,28 +3,24 @@ const { test, trait } = use('Test/Suite')('Create User');
 trait('Test/ApiClient');
 trait('Auth/Client');
 
-test('can create user with valid data', async ({ client }) => {
-  const data = {
-    name: 'Rafael Mancan',
-    email: 'rafael.mancan@gmail.com',
-    password: '12345',
-  };
+const validData = {
+  name: 'Jane Doe',
+  email: 'jane@doe.com',
+  password: '123123',
+};
 
-  const response = await client.post('/api/v1/users').send(data).end();
+test('can create user with valid data', async ({ client }) => {
+  const response = await client.post('/api/v1/users').send(validData).end();
 
   response.assertStatus(201);
   response.assertJSONSubset({
-    name: data.name,
-    email: data.email,
+    name: validData.name,
+    email: validData.email,
   });
 });
 
 test("can't create user with invalid email", async ({ client }) => {
-  const data = {
-    name: 'Rafael Mancan',
-    email: 'rafael.mancan',
-    password: '12345',
-  };
+  const data = { ...validData, email: 'jane.doe' };
 
   const response = await client.post('/api/v1/users').send(data).end();
 
@@ -39,13 +35,7 @@ test("can't create user with invalid email", async ({ client }) => {
 });
 
 test("can't create user when email already in use", async ({ client }) => {
-  const data = {
-    name: 'Rafael Mancan',
-    email: 'rafael.mancan@gmail.com',
-    password: '12345',
-  };
-
-  const response = await client.post('/api/v1/users').send(data).end();
+  const response = await client.post('/api/v1/users').send(validData).end();
 
   response.assertStatus(400);
   response.assertJSONSubset([
