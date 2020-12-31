@@ -1,17 +1,15 @@
-"use strict";
-
 class UpdateAccount {
   get rules() {
     return {
-      name: "required|string",
-      color: "string",
+      name: 'required|string',
+      color: 'string',
     };
   }
 
   get messages() {
     return {
-      required: "{{ field }} is required",
-      string: "{{ field }} is not a valid string",
+      required: '{{ field }} is required',
+      string: '{{ field }} is not a valid string',
     };
   }
 

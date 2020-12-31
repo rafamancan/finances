@@ -1,11 +1,9 @@
-"use strict";
-
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
-const Model = use("Model");
+const Model = use('Model');
 
 class AccountValue extends Model {
   users() {
-    return this.belongsTo("App/Models/AssignmentDate");
+    return this.belongsTo('App/Models/AssignmentDate');
   }
 }
 

@@ -1,5 +1,3 @@
-"use strict";
-
 /*
 |--------------------------------------------------------------------------
 | UserSeeder
@@ -10,20 +8,18 @@
 |
 */
 
-const Database = use("Database");
-const Hash = use("Hash");
+const Database = use('Database');
+const Hash = use('Hash');
 
 class UserSeeder {
   async run() {
-    await Database.table("users").insert([
+    await Database.table('users').insert([
       {
-        name: "Admin",
-        email: "admin@17bits.com.br",
-        password: await Hash.make("123123"),
+        name: 'Admin',
+        email: 'admin@17bits.com.br',
+        password: await Hash.make('123123'),
       },
     ]);
-
-    const users = await Database.table("users");
   }
 }
 

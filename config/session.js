@@ -1,7 +1,5 @@
-'use strict'
-
 /** @type {import('@adonisjs/framework/src/Env')} */
-const Env = use('Env')
+const Env = use('Env');
 
 module.exports = {
   /*
@@ -66,7 +64,7 @@ module.exports = {
   cookie: {
     httpOnly: true,
     sameSite: false,
-    path: '/'
+    path: '/',
   },
 
   /*
@@ -79,7 +77,7 @@ module.exports = {
   |
   */
   file: {
-    location: 'sessions'
+    location: 'sessions',
   },
 
   /*
@@ -96,6 +94,6 @@ module.exports = {
     port: 6379,
     password: null,
     db: 0,
-    keyPrefix: ''
-  }
-}
+    keyPrefix: '',
+  },
+};

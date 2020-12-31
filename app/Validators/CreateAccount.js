@@ -1,19 +1,17 @@
-"use strict";
-
 class CreateAccount {
   get rules() {
     return {
-      user_id: "required|integer",
-      name: "required|string",
-      color: "string",
+      user_id: 'required|integer',
+      name: 'required|string',
+      color: 'string',
     };
   }
 
   get messages() {
     return {
-      integer: "{{ field }} is not a valid User",
-      required: "{{ field }} is required",
-      string: "{{ field }} is not a valid string",
+      integer: '{{ field }} is not a valid User',
+      required: '{{ field }} is required',
+      string: '{{ field }} is not a valid string',
     };
   }
 

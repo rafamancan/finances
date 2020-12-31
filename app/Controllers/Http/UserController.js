@@ -1,11 +1,9 @@
-"use strict";
-
-const User = use("App/Models/User");
+const User = use('App/Models/User');
 
 class UserController {
   async store({ response, request }) {
     const user = await User.create({
-      ...request.only(["name", "email", "password"]),
+      ...request.only(['name', 'email', 'password']),
     });
 
     return response.created(user);
@@ -13,10 +11,10 @@ class UserController {
 
   async update({ response, request }) {
     const { email, name, password } = request.all();
-    const user = await User.findBy("email", email);
+    const user = await User.findBy('email', email);
 
     if (!user) {
-      return response.status(400).send([{ error: "User not found" }]);
+      return response.status(400).send([{ error: 'User not found' }]);
     }
 
     user.name = name;

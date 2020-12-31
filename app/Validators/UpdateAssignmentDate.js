@@ -1,19 +1,17 @@
-"use strict";
-
 class UpdateAssignmentDate {
   get rules() {
     return {
-      month: "required|string[2]",
-      year: "required|string[4]",
-      balance: "required|number",
+      month: 'required|string[2]',
+      year: 'required|string[4]',
+      balance: 'required|number',
     };
   }
 
   get messages() {
     return {
-      required: "{{ field }} is required",
-      string: "{{ field }} is not a valid string",
-      balance: "{{ field }} is not a valid Balance",
+      required: '{{ field }} is required',
+      string: '{{ field }} is not a valid string',
+      balance: '{{ field }} is not a valid Balance',
     };
   }
 

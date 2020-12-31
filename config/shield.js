@@ -1,5 +1,3 @@
-'use strict'
-
 module.exports = {
   /*
   |--------------------------------------------------------------------------
@@ -27,8 +25,7 @@ module.exports = {
     | }
     |
     */
-    directives: {
-    },
+    directives: {},
     /*
     |--------------------------------------------------------------------------
     | Report only
@@ -64,7 +61,7 @@ module.exports = {
     | if you want to know the behavior. https://github.com/helmetjs/helmet/pull/82
     |
     */
-    disableAndroid: true
+    disableAndroid: true,
   },
 
   /*
@@ -80,7 +77,7 @@ module.exports = {
   */
   xss: {
     enabled: true,
-    enableOnOldIE: false
+    enableOnOldIE: false,
   },
 
   /*
@@ -134,12 +131,12 @@ module.exports = {
   csrf: {
     enable: true,
     methods: ['POST', 'PUT', 'DELETE'],
-    filterUris: [],
+    filterUris: ['/api/v1/users'],
     cookieOptions: {
       httpOnly: false,
       sameSite: true,
       path: '/',
-      maxAge: 7200
-    }
-  }
-}
+      maxAge: 7200,
+    },
+  },
+};

@@ -1,7 +1,5 @@
-'use strict'
-
 class NoTimestamp {
-  register (Model) {
+  register(Model) {
     Object.defineProperties(Model, {
       createdAtColumn: {
         get: () => null,
@@ -9,8 +7,8 @@ class NoTimestamp {
       updatedAtColumn: {
         get: () => null,
       },
-    })
+    });
   }
 }
 
-module.exports = NoTimestamp
+module.exports = NoTimestamp;

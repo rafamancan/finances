@@ -1,18 +1,16 @@
-"use strict";
-
 class UpdateAccountValue {
   get rules() {
     return {
-      value: "required|number",
-      type: "required|in:C,D",
+      value: 'required|number',
+      type: 'required|in:C,D',
     };
   }
 
   get messages() {
     return {
-      required: "{{ field }} is required",
-      string: "{{ field }} is not a valid string",
-      in: "{{ field }} is not a valid Type",
+      required: '{{ field }} is required',
+      string: '{{ field }} is not a valid string',
+      in: '{{ field }} is not a valid Type',
     };
   }
 

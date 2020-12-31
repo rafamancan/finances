@@ -1,6 +1,3 @@
-'use strict'
+class SessionController {}
 
-class SessionController {
-}
-
-module.exports = SessionController
+module.exports = SessionController;
