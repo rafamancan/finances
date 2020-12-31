@@ -15,7 +15,7 @@ test('can update user with valid data', async ({ client }) => {
 
   const response = await client
     .put('/api/v1/users')
-    .loginVia(user, 'user')
+    .loginVia(user, 'jwt')
     .send(data)
     .end();
 
@@ -36,7 +36,7 @@ test('can update user without change password', async ({ client }) => {
 
   const response = await client
     .put('/api/v1/users')
-    .loginVia(user, 'user')
+    .loginVia(user, 'jwt')
     .send(data)
     .end();
 

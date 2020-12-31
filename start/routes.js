@@ -22,7 +22,7 @@ Route.group(() => {
 
   Route.put('/', 'UserController.update')
     .validator('UpdateUser')
-    .middleware('auth:user');
+    .middleware(['auth:jwt']);
 
   // sessions
   Route.post('/sessions', 'SessionController.create').validator(
@@ -30,52 +30,52 @@ Route.group(() => {
   );
 
   // accounts
-  Route.get('/accounts', 'AccountController.show').middleware('auth:user');
+  Route.get('/accounts', 'AccountController.show').middleware(['auth:jwt']);
 
   Route.put('/accounts/:account_id', 'AccountController.update')
     .validator('UpdateAccount')
-    .middleware('auth:user');
+    .middleware(['auth:jwt']);
 
   Route.delete('/accounts/:account_id', 'AccountController.delete')
     .validator('DeleteAccount')
-    .middleware('auth:user');
+    .middleware(['auth:jwt']);
 
   // assignment dates
-  Route.get('/assignment_dates', 'AssignmentDateController.show').middleware(
-    'auth:user',
-  );
+  Route.get('/assignment_dates', 'AssignmentDateController.show').middleware([
+    'auth:jwt',
+  ]);
 
   Route.put(
     '/assignment_dates/:assignment_date_id',
     'AssignmentDateController.update',
   )
     .validator('UpdateAssignmentDate')
-    .middleware('auth:user');
+    .middleware(['auth:jwt']);
 
   Route.delete(
     '/assignment_dates/:assignment_date_id',
     'AssignmentDateController.delete',
   )
     .validator('DeleteAssignmentDate')
-    .middleware('auth:user');
+    .middleware(['auth:jwt']);
 
   // account values
   Route.get(
     '/:assignment_date_id/account_values',
     'AccountValueController.show',
-  ).middleware('auth:user');
+  ).middleware(['auth:jwt']);
 
   Route.put(
     '/:assignment_date_id/account_values/:account_values_id',
     'AccountValueController.update',
   )
     .validator('UpdateAccountValue')
-    .middleware('auth:user');
+    .middleware(['auth:jwt']);
 
   Route.delete(
     '/:assignment_date_id/account_values/:account_values_id',
     'AccountValueController.delete',
   )
     .validator('DeleteAccountValue')
-    .middleware('auth:user');
+    .middleware(['auth:jwt']);
 }).prefix('/api/v1/users');
