@@ -1,0 +1,41 @@
+version: '3'
+services:
+  finances:
+    build: .
+    ports:
+      - '3333:3333'
+    command:
+      - yarn
+      - start
+    depends_on:
+      - db
+    networks:
+      - finances-network
+  db:
+    image: 'postgres:alpine'
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'dbdata:/var/lib/postgresql/data'
+    environment:
+      POSTGRES_USER: finances
+      POSTGRES_PASSWORD: supersecret
+      POSTGRES_DB: finances
+    networks:
+      - finances-network
+  db_test:
+    image: 'postgres:alpine'
+    ports:
+      - '55433:5432'
+    volumes:
+      - 'dbtestdata:/var/lib/postgresql/data'
+    environment:
+      POSTGRES_USER: finances_test
+      POSTGRES_PASSWORD: supersecret_test
+      POSTGRES_DB: finances_test
+volumes:
+  dbdata: null
+  dbtestdata: null
+networks:
+  finances-network:
+    driver: bridge
